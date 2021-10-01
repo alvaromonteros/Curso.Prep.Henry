@@ -181,23 +181,18 @@ function todosIguales(arreglo) {
 
 
 function mesesDelAño(array) {
-  for (var j = 0; j < array.length; j++) {
-    if (array[j] !== 'Enero' && array[j] !== 'Marzo' && array[j] !== 'Noviembre') {
-      return 'No se encotraron los meses pedidos';
-    }
-  }
   var meses = [];
   for (var i = 0; i < array.length; i++) {
-    switch (array[i]) {
-      case 'Enero':
-        meses.push (array[i]);
-      case 'Marzo':
-        meses.push (array[i]);
-      case 'Noviembre':
-        meses.push (array[i]);
+    if (array[i] === 'Enero' || array[i] === 'Marzo' || array[i] === 'Noviembre') {
+      meses.push (array[i]);
     }
   }
-  return meses;
+  if (meses.length < 3) {
+    return 'No se encontraron los meses pedidos';
+  }
+  else {
+    return meses;
+  }
   //Dado un array que contiene algunos meses del año desordenados, recorrer el array buscando los meses de 
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
@@ -206,6 +201,13 @@ function mesesDelAño(array) {
 
 
 function mayorACien(array) {
+  var mayor = [];
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] > 100) {
+      mayor.push (array[i]);
+    }
+  }
+  return mayor;
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
@@ -213,6 +215,21 @@ function mayorACien(array) {
 
 
 function breakStatement(numero) {
+  var corte = [];
+  var a = numero;
+  for (var i = 0; i < 10; i++) {
+    a = a + 2;
+    if ( i === a) {
+      break; 
+    }
+    else {
+      corte.push (a);
+    }
+  }
+    if (i < 10) {
+        return 'Se interrumpió la ejecución';
+    }
+  return corte;
   //Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
   //Guardar cada nuevo valor en un array. 
   //Devolver el array
@@ -224,7 +241,19 @@ function breakStatement(numero) {
 
 
 function continueStatement(numero) {
-  //Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
+  var cont = [];
+  var a = numero;
+  for (var i = 0; i < 10; i++) {
+    if ( i === 5) {
+      continue;
+    }
+    else {
+      a = a + 2;
+      cont.push (a);
+    }
+  }
+      return cont;
+   //Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
   //Guardar cada nuevo valor en un array.    
   //Devolver el array
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
